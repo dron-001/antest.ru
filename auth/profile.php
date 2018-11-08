@@ -1,10 +1,8 @@
 <? top('Профайл');
 
-
 $CONNECT = mysqli_connect('localhost', 'root', '', 'In');
 $q = mysqli_query($CONNECT, "SELECT * FROM `users` WHERE `id` = '$_SESSION[id]'");
 $w = mysqli_fetch_assoc($q);
-
 
 if(!$_SESSION['lang']){
 	$_SESSION['lang'] = 1;
@@ -15,9 +13,7 @@ if($_POST['lang_f']){
 	$lang = array_pop($_POST);
 
 	$_SESSION['lang'] = $lang;
-
 }
-
 
 if(!$w['avatar'] == ""){
 	//получение аватарки и его вывод

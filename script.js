@@ -1,5 +1,3 @@
-
-
 function ValidateSingleInput(oInput) {
     //функция для проверки аватарки
   var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
@@ -19,7 +17,6 @@ function ValidateSingleInput(oInput) {
                 if( $('select').val() == 2 )alert("Error loading image");
                 else alert("Ошибка загрузки изоброжения");
 
-
                 oInput.value = "";
                 return false;
             }
@@ -29,14 +26,11 @@ function ValidateSingleInput(oInput) {
 }
 function post_query( url, name, data ) {
 //функция для ajax запросов
-
     var str = '';
-
 
     $.each( data.split('.'), function(k, v) {
         str += '&' + v + '=' + $('#' + v).val();
     } );
-
 
     $.ajax(
 
@@ -45,9 +39,6 @@ function post_query( url, name, data ) {
         type: 'POST',
         data: name + '_f=1' + str,
         cache: false
- 
     }
-
     );
-
 }
