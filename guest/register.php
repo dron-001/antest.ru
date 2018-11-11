@@ -21,19 +21,16 @@ if ( mysqli_num_rows(mysqli_query($CONNECT, "SELECT `id` FROM `users` WHERE `ema
        else echo 'This mail is already taken.';   
 }
 else{
-   if(!$_FILES['avatar']['name'] == ""){
-    //иницилизация аватаарки
-    $avatar = $_FILES["avatar"];
-}
-else $avatar = "";
+    
+
 
 $date = date("d-m-Y-H:i");
 //запись проверенных данных в БД
-mysqli_query($CONNECT, 'INSERT INTO `users` VALUES ("", "'.$_POST['mail'].'", "'.md5($_POST['password']).'", "'.$_POST['name'].'", "'.$_POST['surname'].'", "'.$_POST['patronymic'].'", "'.$_POST['sex'].'", "'.$date.'", "'.$avatar.'")');
+mysqli_query($CONNECT, 'INSERT INTO `users` VALUES ("", "'.$_POST['mail'].'", "'.md5($_POST['password']).'", "'.$_POST['name'].'", "'.$_POST['surname'].'", "'.$_POST['patronymic'].'", "'.$_POST['sex'].'", "'.$date.'", "")');
 //запись данных в сессию и переход на profile.php
 $row = mysqli_fetch_assoc( mysqli_query($CONNECT, "SELECT * FROM `users` WHERE `email` = '$_POST[mail]'") );  
 go_auth($row);
-@loadAvatar($avatar, $_SESSION[id]);
+loadAvatar($_FILES["avatar"], $_SESSION[id]);
     header('Location: profile');
     }    
     }    

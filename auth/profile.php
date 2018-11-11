@@ -22,6 +22,7 @@ if(!$w['avatar'] == ""){
 else $avatar = 'default.png';
 
  ?>
+ 
 <div class="page">
 <div class="us_ava">
 	<? echo "<img  style='position: relative; height: 100%; width: 100%;' src='avatars/".$avatar."'>" ?>

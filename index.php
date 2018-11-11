@@ -36,23 +36,28 @@ function not_found(){
     exit('not_found');
 }
 
+function setAvatar($name){
+    //функция сохроняющая аватарку в БД
+    $CONNECT = mysqli_connect('localhost', 'a0246475_In', 'root', 'a0246475_In');
+     mysqli_query($CONNECT, 'UPDATE `users` SET `avatar` = "'.$name.'" WHERE `id` = "'.$_SESSION[id].'"');
+}
+
 function loadAvatar($avatar){
+    
+    
     //функция загружающая аватарку на сервер
     $type = $avatar['type'];
     $name = md5(microtime()).".".substr($type, strlen("image/"));
     $updir = "avatars/".$name;
     if(move_uploaded_file($avatar["tmp_name"], $updir)){
+        
         setAvatar($name);
-        return true;
+        
     }
     else return false;
     }
 
-function setAvatar($name){
-    //функция сохроняющая аватарку в БД
-    $CONNECT = mysqli_connect('localhost', 'root', '', 'In');
-     mysqli_query($CONNECT, 'UPDATE `users` SET `avatar` = "'.$name.'" WHERE `id` = "'.$_SESSION[id].'"');
-}
+
 
 function top( $title ) {
     $pag = parse_url($_SERVER['REQUEST_URI']);
