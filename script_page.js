@@ -116,8 +116,8 @@ window.location.href='/' + url;
   $('#surname').attr('placeholder', 'Surname');
   $('#patronymic').attr('placeholder', 'Patronymic');
   $('#btn7').text('Sex');
-  $('#s1').text('man');
-  $('#s2').text('woman');
+  $('#s1').text('male');
+  $('#s2').text('female');
   $('#btn8').attr('value', 'Sig in');
   $('#btn9').text('You can upload an avatar');
 
