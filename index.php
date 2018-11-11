@@ -1,7 +1,7 @@
 <?
 session_start();
 
-$CONNECT = mysqli_connect('localhost', 'root', '', 'In');
+$CONNECT = mysqli_connect('localhost', 'a0246475_In', 'root', 'a0246475_In');
 if( !$CONNECT ) exit('MySQL error');
 
   /*********************************/
@@ -17,21 +17,23 @@ else {
  /**Переход на страниццу если она найдена**/
 /*****************************************/
 
- if ( $_SESSION['id'] and file_exists('auth/'.$page.'.php') ) include 'auth/'.$page.'.php';
+if ( $_SESSION['id'] and file_exists('auth/'.$page.'.php') ) include 'auth/'.$page.'.php';
 else if ( !$_SESSION['id'] and file_exists('guest/'.$page.'.php') ) include 'guest/'.$page.'.php';
-else not_found();
+else  not_found();
+
 
   /***************************************************************************************************************************************************/
  /**********************************************Функции необходимые для работы сайта*****************************************************************/
 /***************************************************************************************************************************************************/
-function not_found(){
-    exit('not_found');
-}
 
 function go_auth($data){
     //функция записывающая данные юзера в сессию
     foreach ($data as $key => $value) 
         $_SESSION[$key] = $value;
+}
+
+function not_found(){
+    exit('not_found');
 }
 
 function loadAvatar($avatar){
@@ -79,8 +81,7 @@ else
     echo'
 <a href="/login" id="btn1">Вход</a>
 <a href="/register" id="btn2">Регистрация</a>';
-if($_SESSION['admin'])
-    echo'<a href="/admin_room">Админ комната</a>';
+
 echo '
 </div>
 <div class="content">

@@ -1,5 +1,5 @@
 <? 
-$CONNECT = mysqli_connect('localhost', 'root', '', 'In');
+$CONNECT = mysqli_connect('localhost', 'a0246475_In', 'root', 'a0246475_In');
 if( !$CONNECT ) exit('MySQL error');
 
 if(!$_SESSION['lang']){
@@ -48,10 +48,8 @@ go_auth($row);
 <p><input type="password" placeholder="Пароль" id="password"  name="password" value="<? echo $_POST['password']; ?>"></p>
 <p><input type="password" placeholder="Повторите пароль"  id="password2" name="password2" value="<? echo $_POST['password2']; ?>"></p>
 <p id="btn7">Пол</p>
-<p><select id="sex">
-<option id = "s1" value="1">Муж.</option>
-<option id = "s2" value="0">Жен.</option>
-</select></p>        
+<input type="radio" name="sex"  value="1" checked><label id="s1">муж</label></br>
+   <input type="radio" name="sex"  value="2" ><label id="s2">жен</label>   
         <h1 id="btn9">Вы можете загрузить аватарку</h1>
         <input  type="file" name="avatar" onchange="ValidateSingleInput(this)">      
     <p><input id="btn8" type="submit" value ="Зарегистрироватся" class="reg" ></p>

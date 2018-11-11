@@ -1,6 +1,6 @@
 <? top('Профайл');
 
-$CONNECT = mysqli_connect('localhost', 'root', '', 'In');
+$CONNECT = mysqli_connect('localhost', 'a0246475_In', 'root', 'a0246475_In');
 $q = mysqli_query($CONNECT, "SELECT * FROM `users` WHERE `id` = '$_SESSION[id]'");
 $w = mysqli_fetch_assoc($q);
 

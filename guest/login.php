@@ -1,6 +1,8 @@
 <?
 
-$CONNECT = mysqli_connect('localhost', 'root', '', 'In');
+
+
+$CONNECT = mysqli_connect('localhost', 'a0246475_In', 'root', 'a0246475_In');
 if( !$CONNECT ) exit('MySQL error');
 
 if(!$_SESSION['lang']){
